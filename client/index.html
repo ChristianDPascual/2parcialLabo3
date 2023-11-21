@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="./script/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./style/style.css" rel="stylesheet">
+    <title>Bestiario</title>
+</head>
+<body id="body">
+    <header>
+        <img src ="./style/imagenes/cabecera.png" class="cabecera">
+    </header>
+    <div class ="fondo" >
+
+        <button class ="boton-medio-circulo" id="btnOp"><img src="style/imagenes/lupa.png" class ="lupa"></button>
+        <div class ="filtrador" id="filtrador">
+            <div class ="menu" id="menuDesplegable">
+                <div class="form-group col-4">
+                    <select class="selector" name="filtroTipo" id ="filtroTipo" class="formularioInput" required>
+                        <option selected="true" disabled="disabled"> Tipo</option>
+                        <option value="humanoide"> Humanoide</option>
+                        <option value="bestia"> Bestia</option>
+                        <option value="demonio"> Demonio</option>
+                        <option value="no muerto"> No muerto</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-4">
+                    <select class="selector" name="filtrarDebilidad" id ="filtrarDebilidad" class="formularioInput" required>
+                        <option selected="true" disabled="disabled"> Debilidad</option>
+                        <option value="biblia"> Biblia</option>
+                        <option value="espada de plata"> Espada de plata</option>
+                        <option value="luz solar"> Luz solar</option>
+                        <option value="fuego"> Fuego</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-4">
+                    <p>Ordenar nombre</p>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="ordenarNombre" id="azNombre">
+                        <label class ="desc" for="azNombre">A-Z</label>
+                        <input type="radio" name="ordenarNombre" id="zaNombre">
+                        <label class ="desc" for="zaNombre">Z-A</label>
+                    </div>
+                </div>
+
+                <div class="form-group col-4">
+                    <p>Ordenar alias</p>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="ordenarAlias" id="azAlias">
+                        <label class ="desc" for="azAlias"> A-Z </label>
+                        <input type="radio" name="ordenarAlias" id="zaAlias">
+                        <label class ="desc" for="zaAlias"> Z-A </label>
+                    </div>
+                </div>
+
+                <div class="form-group col-4">
+                    <p>Nivel de miedo:</p>
+                    <input type="range" min="1" max="10" step="1" id="miedo" name="miedo">
+                    <datalist id="miedo">
+                        <option value="1" label="0%">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5" label="50%">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10" label="100%">10</option>
+                      </datalist>
+                    <p class="desc2" id="nivelMiedo">10</p>
+                </div>
+
+                <div class="Botonera">
+                    <button class ="btn btn-info" id="btnClean">Limpiar</button>
+                    <button class ="btn btn-success" id="btnBuscar">Buscar</button>
+                </div>
+             </div>
+        </div>
+        
+        <img src="./style/imagenes/fantasmin.gif" alt="GIF animado" class="gif" id="gif">
+
+         <a href ="tarjetas.html"><img src="./style/imagenes/monstruito.png" alt="link" class="link" id="link"></a>
+
+        <div class = "contenedor">
+            <div id ="divTabla"></div>
+        </div>
+
+    <button class ="btnNuevoMonstruo" id="btnNuevoMonstruo">Carga tu<br>monstruo</button>
+
+    <dialog id="formulario" class="pop"><!-------Si no esta abierto no funciona -->
+        <div class="formulario">
+            <div class="formularioBlock">
+                <p class ="titulosForm">Nombre</p>
+                <input type="text"  class="formularioInput" name="nombreMonstruo" id="nombreMonstruo" placeholder=" Nombre:" required>
+            </div>
+
+            <div class="formularioBlock">
+                <p class ="titulosForm">Tipo</p>
+                <select class="selector2" name="tipoMonstruo" id ="tipoMonstruo" class="formularioInput" required>
+                    <option selected="true" disabled="disabled"> Tipo</option>
+                    <option value="humanoide"> Humanoide</option>
+                    <option value="bestia"> Bestia</option>
+                    <option value="demonio"> Demonio</option>
+                    <option value="no muerto"> No muerto</option>
+                </select>
+            </div>
+
+            <div class="formularioBlock">
+                <p class ="titulosForm">Debilidad</p>
+                <select class="selector2" name="debilidadMonstruo" id ="debilidadMonstruo" class="formularioInput" required>
+                    <option selected="true" disabled="disabled"> Debilidad</option>
+                    <option value="biblia"> Biblia</option>
+                    <option value="espada de plata"> Espada de plata</option>
+                    <option value="luz solar"> Luz solar</option>
+                    <option value="fuego"> Fuego</option>
+                </select>
+            </div>
+
+            <div class="formularioBlock">
+                <p class ="titulosForm">Alias</p>
+                <input type="text"  class="formularioInput" name="aliasMonstruo" id="aliasMonstruo" placeholder=" Alias:" required>
+            </div>
+
+            <div class="formularioBlock">
+                <p class ="titulosForm">Nivel de miedo</p>
+                <input type="number" class="formularioInput" placeholder=" Nivel de miedo" id="cnivelMiedo" name ="cnivelMiedo" min="1" max="10" required>
+            </div>
+
+
+          <div class="formularioBlock">
+            <button class="botonForm" id="btnGuardar" style="background-color: rgb(43, 223, 43);">Guardar</button>
+            <button class="botonForm" id="btnBorrar" style="background-color: rgb(255, 185, 55);">Borrar</button>
+            <button class="botonForm" id="btnCerrar" style="background-color: rgba(81, 111, 211, 0.781);">Cancelar</button>
+            <button class="botonForm" id="btnModificar" style="background-color: rgb(128, 129, 128);">Modificar</button>
+            <button class="botonForm" id="btnEliminar" style="background-color: rgb(223, 43, 43);">Eliminar</button>
+            <button class="botonForm" id="btnSalir" style="background-color: rgb(223, 43, 154);">Salir</button>
+          </div>
+        </div>
+        
+    </dialog>
+    </div>
+    
+    
+</body>
+</html>

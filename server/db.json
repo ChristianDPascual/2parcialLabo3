@@ -1,0 +1,196 @@
+{
+  "monstruos": [
+    {
+      "id": 2,
+      "nombre": "Vampiro",
+      "tipo": "humanoide",
+      "debilidad": "luz solar",
+      "alias": "Vlaidimir",
+      "miedo": 5
+    },
+    {
+      "id": 3,
+      "nombre": "Hombre Lobo",
+      "tipo": "Bestia",
+      "debilidad": "espada de plata",
+      "alias": "shakira",
+      "miedo": 6
+    },
+    {
+      "id": 4,
+      "nombre": "Frankenstein",
+      "tipo": "no muerto",
+      "debilidad": "fuego",
+      "alias": "franky",
+      "miedo": 8
+    },
+    {
+      "id": 6,
+      "nombre": "Fantasma",
+      "tipo": "no muerto",
+      "debilidad": "biblia",
+      "alias": "gasparin",
+      "miedo": 6
+    },
+    {
+      "id": 5,
+      "nombre": "Bruja",
+      "tipo": "humanoide",
+      "debilidad": "espada de plata",
+      "alias": "cachavacha",
+      "miedo": 2
+    },
+    {
+      "id": 8,
+      "nombre": "momia",
+      "tipo": "no muerto",
+      "debilidad": "fuego",
+      "alias": "mummy",
+      "miedo": 8
+    },
+    {
+      "id": 7,
+      "nombre": "zombi",
+      "tipo": "no muerto",
+      "debilidad": "fuego",
+      "alias": "el z",
+      "miedo": 3
+    },
+    {
+      "id": 10,
+      "nombre": "Demonio",
+      "tipo": "demonio",
+      "debilidad": "biblia",
+      "alias": "lucifer",
+      "miedo": 10
+    },
+    {
+      "id": 11,
+      "nombre": "rojo",
+      "tipo": "demonio",
+      "debilidad": "biblia",
+      "alias": "red",
+      "miedo": 4
+    },
+    {
+      "id": 12,
+      "nombre": "annabell",
+      "tipo": "no muerto",
+      "debilidad": "biblia",
+      "alias": "annie",
+      "miedo": 1
+    },
+    {
+      "id": 13,
+      "nombre": "Ness",
+      "tipo": "bestia",
+      "debilidad": "espada de plata",
+      "alias": "nessi",
+      "miedo": 4
+    },
+    {
+      "id": 14,
+      "nombre": "Gargola",
+      "tipo": "bestia",
+      "debilidad": "luz solar",
+      "alias": "Gargi",
+      "miedo": 7
+    },
+    {
+      "id": 15,
+      "nombre": "Gigante",
+      "tipo": "humanoide",
+      "debilidad": "fuego",
+      "alias": "largo",
+      "miedo": 3
+    },
+    {
+      "id": 16,
+      "nombre": "Jack",
+      "tipo": "demonio",
+      "debilidad": "fuego",
+      "alias": "Jackky",
+      "miedo": 5
+    },
+    {
+      "id": 17,
+      "nombre": "gremlins",
+      "tipo": "bestia",
+      "debilidad": "luz solar",
+      "alias": "furby",
+      "miedo": 2
+    },
+    {
+      "id": 18,
+      "nombre": "Genio",
+      "tipo": "demonio",
+      "debilidad": "biblia",
+      "alias": "gran G",
+      "miedo": 4
+    },
+    {
+      "id": 19,
+      "nombre": "Pomberito",
+      "tipo": "humanoide",
+      "debilidad": "espada de plata",
+      "alias": "pompi",
+      "miedo": 7
+    },
+    {
+      "id": 20,
+      "nombre": "Gnomo",
+      "tipo": "humanoide",
+      "debilidad": "espada de plata",
+      "alias": "chiquito",
+      "miedo": 2
+    },
+    {
+      "id": 9,
+      "nombre": "Gengar",
+      "tipo": "no muerto",
+      "debilidad": "biblia",
+      "alias": "Fantasmin",
+      "miedo": 6
+    },
+    {
+      "id": 99,
+      "nombre": "vampiro",
+      "tipo": "humanoide",
+      "debilidad": "luz solar",
+      "alias": "vlad tepes",
+      "miedo": 8
+    },
+    {
+      "id": 25,
+      "nombre": "Cthulu",
+      "tipo": "bestia",
+      "debilidad": "fuego",
+      "alias": "pulpin",
+      "miedo": 10
+    },
+    {
+      "id": 49,
+      "nombre": "Azzathot",
+      "tipo": "demonio",
+      "debilidad": "biblia",
+      "alias": "Azzi",
+      "miedo": "4"
+    },
+    {
+      "id": 51,
+      "nombre": "ulises",
+      "tipo": "humanoide",
+      "debilidad": "fuego",
+      "alias": "el vampirito",
+      "miedo": 6
+    },
+    {
+      "id": 94,
+      "nombre": "Pie grande",
+      "tipo": "bestia",
+      "debilidad": "espada de plata",
+      "alias": "patitas",
+      "miedo": 5
+    }
+  ]
+}
