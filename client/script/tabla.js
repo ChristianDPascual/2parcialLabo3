@@ -1,4 +1,4 @@
-import {getMonstruos} from "./miBiblioteca.js";
+import {getMonstruos,getterTabla} from "./miBiblioteca.js";
 const divTabla = document.getElementById("divTabla");
 const filTipo = document.getElementById("filtroTipo");
 const filtroDebilidad = document.getElementById("filtrarDebilidad");
@@ -13,9 +13,10 @@ export function crearTabla()
     getMonstruos()
     .then( datos => {
         const arr = datos.map(e=>({id:e.id,nombre:e.nombre,tipo:e.tipo,debilidad:e.debilidad,alias:e.alias,miedo:e.miedo}));
+        let tab = ordenarFuerzaMiedo(arr);
         let tabla = document.createElement("table");
-        tabla.appendChild(crearCabeceraTabla(arr[0]));
-        tabla.appendChild(crearCuerpoTabla(arr));
+        tabla.appendChild(crearCabeceraTabla(tab[0]));
+        tabla.appendChild(crearCuerpoTabla(tab));
         tabla.classList.add("table-striped");
         tabla.classList.add('table-hover');
         tabla.classList.add("table");
@@ -80,6 +81,8 @@ function mapearArray(arr)
     return arr.map(e=>({nombre:e.nombre,tipo:e.tipo,debilidad:e.tipo,alias:e.alias,miedo:e.miedo}));
 }
 
+
+
 export function elFiltrador(fTipo,fDebilidad,fNombre,fAlias,fMiedo)
 {
 
@@ -90,12 +93,12 @@ export function elFiltrador(fTipo,fDebilidad,fNombre,fAlias,fMiedo)
 
         if(fTipo === true)
         {
-            filtro = filtrarTipo(filtro,filTipo.value);
+            filtro = filtrarTipos(filtro,filTipo.value);
         }
 
         if(fDebilidad === true)
         {
-            filtro = filtrarDebilidad(filtro,filtroDebilidad.value);
+            filtro = filtrarDebilidades(filtro,filtroDebilidad.value);
         }
 
         if(fNombre === true)
@@ -124,8 +127,10 @@ export function elFiltrador(fTipo,fDebilidad,fNombre,fAlias,fMiedo)
 
         if(fMiedo === true)
         {
-            filtro = filtrarMiedo(filtro,filtroMiedo.value);
+            filtro = filtrarMiedos(filtro,filtroMiedo.value);
         }
+
+        filtro = ordenarFuerzaMiedo(filtro);
 
         let tabla = document.createElement("table");
         tabla.appendChild(crearCabeceraTabla(filtro[0]));
@@ -135,7 +140,6 @@ export function elFiltrador(fTipo,fDebilidad,fNombre,fAlias,fMiedo)
         tabla.classList.add("table");
         console.log(tabla);
         divTabla.appendChild(tabla);
-        console.log(tabla);
     })
     .catch( error => {
         console.log("Hubo un error al obtener los datos: ",error);
@@ -145,38 +149,43 @@ export function elFiltrador(fTipo,fDebilidad,fNombre,fAlias,fMiedo)
     });
 }
 
-function filtrarTipo(arr,condicion)
+export function filtrarTipos(arr,condicion)
 {
     return arr.filter(m=>m.tipo === condicion);
 }
 
-function filtrarDebilidad(arr,condicion)
+export function filtrarDebilidades(arr,condicion)
 {
     return arr.filter(m=>m.debilidad === condicion);
 }
 
-function filtrarMiedo(arr,condicion)
+export function filtrarMiedos(arr,condicion)
 {
     console.log(condicion);
     return arr.filter(m=>m.miedo <= condicion);
 }
 
-function ordenarAZNombre(datos)
+export function ordenarAZNombre(datos)
 {
     return datos.sort((a,b)=> a.nombre.localeCompare(b.nombre)); 
 }
 
-function ordenarZANombre(datos)
+export function ordenarZANombre(datos)
 {
     return datos.sort((b,a)=> a.nombre.localeCompare(b.nombre)); 
 }
 
-function ordenarAZAlias(datos)
+export function ordenarAZAlias(datos)
 {
     return datos.sort((a,b)=> a.alias.localeCompare(b.alias)); 
 }
 
-function ordenarZAAlias(datos)
+export function ordenarZAAlias(datos)
 {
     return datos.sort((b,a)=> a.alias.localeCompare(b.alias)); 
+}
+
+export function ordenarFuerzaMiedo(datos)
+{
+    return datos.sort((b,a)=> a.miedo-b.miedo); 
 }

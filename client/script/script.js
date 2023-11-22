@@ -1,5 +1,5 @@
-import { crearTabla,refrescarDiv,elFiltrador} from "./tabla.js";
-import { validarDebilidad,validarNumero,validarTexto,validarTipo,postMonstruo,updateMonstruo,deleteMonstruo } from "./miBiblioteca.js";
+import { crearTabla,refrescarDiv,elFiltrador,filtrarDebilidades,filtrarMiedos,filtrarTipos} from "./tabla.js";
+import { validarDebilidad,validarNumero,validarTexto,validarTipo,postMonstruo,updateMonstruo,deleteMonstruo,getterTabla } from "./miBiblioteca.js";
 
 const divTabla = document.getElementById("divTabla");
 const filtrador = document.getElementById("filtrador");
@@ -29,8 +29,17 @@ const filtrarAZAlias = document.getElementById("azAlias");
 const filtrarZAAlias = document.getElementById("zaAlias");
 const filtrarMiedo = document.getElementById("miedo");
 const textoMiedo = document.getElementById("nivelMiedo");
+const btnPromedio = document.getElementById("btnMiedo");
+const valorMiedo = document.getElementById("promedioM");
 const loader = document.getElementById("gif");
+const rnombre = document.getElementById("nombreM");
+const rmiedo = document.getElementById("miedoM");
+const ralias = document.getElementById("aliasM");
+const rtipo = document.getElementById("tipoM");
+const rdebilidad = document.getElementById("debM");
+const limpiarChecked = document.getElementById("btnLimpiarCheck");
 let valorID;
+
 
 
 window.addEventListener("load",()=>{
@@ -38,6 +47,193 @@ window.addEventListener("load",()=>{
    filtrarMiedo.value = 10;
    textoMiedo.textContent = filtrarMiedo.value;
 });
+limpiarChecked.addEventListener("click",()=>
+{
+    rnombre.checked = false;
+    rtipo.checked = false;
+    ralias.checked = false;
+    rdebilidad.checked = false;
+    rmiedo.checked = false;
+    let celdas2 = document.querySelectorAll("td:nth-child(2)");
+    let cabecera2 = document.querySelector("th:nth-child(2)");
+    let celdas3 = document.querySelectorAll("td:nth-child(3)");
+    let cabecera3 = document.querySelector("th:nth-child(3)");
+    let celdas4 = document.querySelectorAll("td:nth-child(4)");
+    let cabecera4 = document.querySelector("th:nth-child(4)");
+    let celdas5 = document.querySelectorAll("td:nth-child(5)");
+    let cabecera5 = document.querySelector("th:nth-child(5)");
+    let celdas6 = document.querySelectorAll("td:nth-child(6)");
+    let cabecera6 = document.querySelector("th:nth-child(6)");
+
+    celdas2.forEach(function(celda) {
+        celda.style.display = "table-cell";
+    });
+    cabecera2.style.display = "table-cell";
+
+    celdas3.forEach(function(celda) {
+        celda.style.display = "table-cell";
+    });
+    cabecera3.style.display = "table-cell";
+
+    celdas4.forEach(function(celda) {
+        celda.style.display = "table-cell";
+    });
+    cabecera4.style.display = "table-cell";
+
+    celdas5.forEach(function(celda) {
+        celda.style.display = "table-cell";
+    });
+    cabecera5.style.display = "table-cell";
+
+    celdas6.forEach(function(celda) {
+        celda.style.display = "table-cell";
+    });
+    cabecera6.style.display = "table-cell";
+
+});
+rnombre.addEventListener("change",()=>{
+    let celdas = document.querySelectorAll("td:nth-child(2)");
+  let cabecera = document.querySelector("th:nth-child(2)");
+  if (rnombre.checked) {
+      celdas.forEach(function(celda) {
+          celda.style.display = "none";
+      });
+      cabecera.style.display = "none";
+  } else {
+      celdas.forEach(function(celda) {
+          celda.style.display = "table-cell";
+      });
+      cabecera.style.display = "table-cell";
+  }
+});
+
+rtipo.addEventListener("change",()=>{
+    let celdas = document.querySelectorAll("td:nth-child(3)");
+    let cabecera = document.querySelector("th:nth-child(3)");
+  if (rtipo.checked) {
+      celdas.forEach(function(celda) {
+          celda.style.display = "none";
+      });
+      cabecera.style.display = "none";
+  } else {
+      celdas.forEach(function(celda) {
+          celda.style.display = "table-cell";
+      });
+      cabecera.style.display = "table-cell";
+  }
+});
+
+rdebilidad.addEventListener("change",()=>{
+    let celdas = document.querySelectorAll("td:nth-child(4)");
+    let cabecera = document.querySelector("th:nth-child(4)");
+  if (rdebilidad.checked) {
+      celdas.forEach(function(celda) {
+          celda.style.display = "none";
+      });
+      cabecera.style.display = "none";
+  } else {
+      celdas.forEach(function(celda) {
+          celda.style.display = "table-cell";
+      });
+      cabecera.style.display = "table-cell";
+  }
+});
+
+ralias.addEventListener("change",()=>{
+    let celdas = document.querySelectorAll("td:nth-child(5)");
+    let cabecera = document.querySelector("th:nth-child(5)");
+  if (ralias.checked) {
+      celdas.forEach(function(celda) {
+          celda.style.display = "none";
+      });
+      cabecera.style.display = "none";
+  } else {
+      celdas.forEach(function(celda) {
+          celda.style.display = "table-cell";
+      });
+      cabecera.style.display = "table-cell";
+  }
+});
+
+rmiedo.addEventListener("change",()=>{
+    let celdas = document.querySelectorAll("td:nth-child(6)");
+    let cabecera = document.querySelector("th:nth-child(6)");
+  if (rmiedo.checked) {
+      celdas.forEach(function(celda) {
+          celda.style.display = "none";
+      });
+      cabecera.style.display = "none";
+  } else {
+      celdas.forEach(function(celda) {
+          celda.style.display = "table-cell";
+      });
+      cabecera.style.display = "table-cell";
+  }
+});
+
+btnPromedio.addEventListener('click', () => {
+
+    let fTipo = false;
+    let fDebilidad = false;
+    let fMiedo = false;
+
+    if(filtrarTipo.value != "Tipo")
+    {
+        fTipo = true;
+    }
+
+    if(filtrarDebilidad.value != "Debilidad")
+    {
+        fDebilidad = true;
+    }
+
+    if(filtrarMiedo.value<10)
+    {
+        fMiedo = true;
+    }
+
+    let datos = function acumuladorMiedo(fTipo,fDebilidad,fMiedo)
+    {
+    getterTabla()
+    .then( datos => {
+        //aca tengo q ver q carajo filtre
+        let filtro = datos;
+
+        if(fTipo === true)
+        {
+            filtro = filtrarTipos(filtro,filtrarTipo.value);
+        }
+
+        if(fDebilidad === true)
+        {
+            filtro = filtrarDebilidades(filtro,filtrarDebilidad.value);
+        }
+
+        if(fMiedo === true)
+        {
+            filtro = filtrarMiedos(filtro,filtrarMiedo);
+        }
+        console.log(filtro);
+       let cant = filtro.length;
+       let sumador = 0;
+       for(const x in filtro)
+       {
+
+       }
+       let total = filtro.reduce((prev,actual) => prev + actual.miedo, 0);
+
+       console.log(total);
+       console.log(cant);
+
+       valorMiedo.textContent = total/filtro.length;
+    })
+    .catch( error => {
+        console.log("Hubo un error al obtener los datos: ",error);
+    })
+    }
+    datos();
+});
+
 
 btnOp.addEventListener("click",()=>{
     body.classList.toggle("body_move");
@@ -334,6 +530,11 @@ btnBuscar.addEventListener("click",()=>{
         fDebilidad = true;
     }
 
+    if(filtrarMiedo.value<10)
+    {
+        fMiedo = true;
+    }
+
     if(!(filtrarAZNombre.checked === false && filtrarZANombre.checked === false))
     {
         fNombre = true;
@@ -342,11 +543,6 @@ btnBuscar.addEventListener("click",()=>{
     if(!(filtrarAZAlias.checked === false && filtrarZAAlias.checked === false))
     {
         fAlias = true;
-    }
-
-    if(filtrarMiedo.value<10)
-    {
-        fMiedo = true;
     }
 
     if(fTipo === true || fDebilidad === true || fNombre === true || fAlias === true || fMiedo === true)

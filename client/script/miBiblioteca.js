@@ -7,20 +7,6 @@ const URL = "http://localhost:3000/monstruos";
 
 export function getMonstruos(){
     loader.style.display = "block";
-    /*
-    return fetch(URL)
-    .then( (res) => {
-        if(res.ok == true){
-            return res.json();
-        }
-        else{
-            throw new Error("la solicitud no fue exitosa");
-        }
-    })
-    .catch( (error) => {
-        console.log(`Error ${error.status} : ${error.statusText}`);
-    })*/
-
     return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve(fetch(URL)
@@ -38,6 +24,23 @@ export function getMonstruos(){
   });
     
 
+}
+
+export function getterTabla(){
+
+    return fetch(URL)
+          .then( (res) => {
+            if(res.ok == true){
+                return res.json();
+            }
+            else{
+                throw new Error("la solicitud no fue exitosa");
+            }
+        })
+        .catch( (error) => {
+            console.log(`Error ${error.status} : ${error.statusText}`);
+        });
+    
 }
 
 export function postMonstruo(nombre,tipo,debilidad,alias,miedo)

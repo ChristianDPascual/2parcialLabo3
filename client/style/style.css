@@ -135,7 +135,10 @@ body
     height: 250px;
     box-sizing: border-box;
   }
-  
+.promedio
+{
+    padding: 5px;
+}
 .link
 {
     position: absolute;

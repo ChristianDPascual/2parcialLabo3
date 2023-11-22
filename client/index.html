@@ -76,6 +76,11 @@
                     <p class="desc2" id="nivelMiedo">10</p>
                 </div>
 
+                <div class="form-group col-4">
+                    <p>calcular promedio miedo</p>
+                    <div style="display: flex"><button class ="btonMiedo" id="btnMiedo">calcular</button><p class="promedio" id="promedioM">  prom</p></div>
+                </div>
+
                 <div class="Botonera">
                     <button class ="btn btn-info" id="btnClean">Limpiar</button>
                     <button class ="btn btn-success" id="btnBuscar">Buscar</button>
@@ -86,14 +91,29 @@
         <img src="./style/imagenes/fantasmin.gif" alt="GIF animado" class="gif" id="gif">
 
          <a href ="tarjetas.html"><img src="./style/imagenes/monstruito.png" alt="link" class="link" id="link"></a>
-
+         <div class="form-group col-4" style="color: white; font-size: 30px;">
+            <p>mostrar Columnas</p>
+            <div class="form-check form-check-inline">
+                <input type="radio" name="nombreM" id="nombreM">
+                <label class ="desc" for="nombreM"> nombre </label>
+                <input type="radio" name="aliasM" id="aliasM">
+                <label class ="desc" for="aliasM"> alias </label>
+                <input type="radio" name="miedoM" id="miedoM">
+                <label class ="desc" for="miedoM"> miedo </label>
+                <input type="radio" name="debM" id="debM">
+                <label class ="desc" for="debM"> debilidad </label>
+                <input type="radio" name="tipoM" id="tipoM">
+                <label class ="desc" for="tipoM"> tipo </label>
+            </div>
+            <button id="btnLimpiarCheck">limpiar</button>
+        </div>
         <div class = "contenedor">
             <div id ="divTabla"></div>
         </div>
 
-    <button class ="btnNuevoMonstruo" id="btnNuevoMonstruo">Carga tu<br>monstruo</button>
+     <button class ="btnNuevoMonstruo" id="btnNuevoMonstruo">Carga tu<br>monstruo</button>
 
-    <dialog id="formulario" class="pop"><!-------Si no esta abierto no funciona -->
+     <dialog id="formulario" class="pop"><!-------Si no esta abierto no funciona -->
         <div class="formulario">
             <div class="formularioBlock">
                 <p class ="titulosForm">Nombre</p>
@@ -143,9 +163,7 @@
           </div>
         </div>
         
-    </dialog>
-    </div>
-    
-    
+     </dialog>
+    </div>  
 </body>
 </html>
